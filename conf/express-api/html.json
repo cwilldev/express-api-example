@@ -1,0 +1,26 @@
+{
+    "/html": {
+
+        "GET": {
+            "route": {
+                "file": "html",
+                "action": "show"
+            },
+            "env": "*",
+            "request": {
+                "provider" : "json",
+                "fields" : {
+                    "headline": {
+                        "validator": [
+                            "len(4,24)"
+                        ]
+                    }
+                }
+            },
+            "response": {
+                "provider" : "html"
+            }
+        }
+
+    }
+}

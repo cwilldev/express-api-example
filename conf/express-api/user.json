@@ -1,0 +1,85 @@
+{
+    "/user": {
+
+        "GET": {
+            "disabled": false,
+            "route": {
+                "file": "user",
+                "action": "show"
+            },
+            "env": [
+                "development",
+                "test",
+                "production"
+            ],
+            "request": {
+                "provider" : "json",
+                "mode": "strict",
+                "fields" : {
+                    "id": {
+                        "validator": [
+                            "isNumeric()"
+                        ]
+                    }
+                }
+            },
+            "response": {
+                "provider" : "json",
+                "fields" : {
+                    "name" : {},
+                    "phone" : {},
+                    "location" : {
+                        "city" : {},
+                        "country" : {}
+                    }
+                }
+            }
+        },
+
+
+        "POST": {
+            "route": {
+                "file": "user",
+                "action": "create"
+            },
+            "env": "*",
+            "request": {
+                "provider" : "json",
+                "mode": "loose",
+                "fields" : {
+                    "name": {},
+                    "phone": {
+                        "validator": [
+                            "len(6, 64)"
+                        ]
+                    },
+                    "location": {
+                        "city": {
+                            "validator": [
+                                "len(2,64)"
+                            ]
+                        },
+                        "country": {
+                            "validator": [
+                                "len(2,64)"
+                            ]
+                        }
+                    }
+                }
+            },
+            "response": {
+                "provider" : "json",
+                "fields" : {
+                    "id": {},
+                    "name" : {},
+                    "phone" : {},
+                    "location" : {
+                        "city" : {},
+                        "country" : {}
+                    }
+                }
+            }
+        }
+    }
+
+}

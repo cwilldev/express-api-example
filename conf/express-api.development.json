@@ -1,0 +1,26 @@
+{
+    "endpoints": {
+
+        "configurations": {
+            "path": "/conf/express-api/",
+            "relative": true
+        },
+
+        "routes" : {
+            "path": "/routes/",
+            "relative": true
+        }
+    },
+
+    "request": {
+        "wrapper" : {
+            "key": "data"
+        }
+    },
+
+    "response": {
+        "wrapper" : {
+            "key": "data"
+        }
+    }
+}
